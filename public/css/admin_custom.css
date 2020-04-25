@@ -1,0 +1,268 @@
+.ck-editor__editable,
+textarea {
+    min-height: 150px;
+}
+
+.datatable {
+    width: 100% !important;
+}
+
+.dataTables_length,
+.dataTables_filter,
+.dt-buttons {
+    margin-bottom: 0.333em;
+    margin-top: .2rem;
+}
+
+.dataTables_filter {
+    margin-right: .2rem;
+}
+
+.dt-buttons .btn {
+    margin-left: 0.333em;
+    border-radius: 0;
+}
+
+.table.datatable {
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+table.dataTable thead th {
+    border-bottom: 2px solid #c8ced3;
+}
+
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border-bottom: 1px solid #c8ced3;
+}
+
+.select2 {
+    max-width: 100%;
+    width: 100% !important;
+}
+
+.select2-selection__rendered {
+    padding-bottom: 5px !important;
+}
+
+.has-error .invalid-feedback {
+    display: block !important;
+}
+
+.btn-info,
+.badge-info {
+    color: white;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    background-image: none;
+}
+
+.sidebar .nav-item {
+    cursor: pointer;
+}
+
+.btn-default {
+    color: #23282c;
+    background-color: #f0f3f5;
+    border-color: #f0f3f5;
+}
+
+.btn-default.focus,
+.btn-default:focus {
+    box-shadow: 0 0 0 .2rem rgba(209, 213, 215, .5);
+}
+
+.btn-default:hover {
+    color: #23282c;
+    background-color: #d9e1e6;
+    border-color: #d1dbe1;
+}
+
+.btn-group-xs > .btn,
+.btn-xs {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 70%;
+}
+
+/***web ***/
+
+@media(min-width: 1600px){
+  .container-gral{
+    max-width: 1550px!important;
+    margin:auto;
+  }
+}
+
+/*CATALOGOS*/
+
+#container-catalogo p{
+  font-weight: 300
+}
+
+
+#container-catalogo h2{
+  font-weight: 300;
+  text-transform: uppercase;  
+}
+
+#container-catalogo .form-custom{
+  background-color: #e7e8ea;
+}
+
+
+.container-descripcion{
+  margin-top: 10px
+}
+
+.container-text{
+  margin-top: 10px
+}
+
+.icon-catalogo-right{
+  width: 20px
+}
+
+
+.img-left{
+  padding: 0 10px 0 0
+}
+
+.catalogo{
+  background-color:  rgb(231, 232, 234);
+  padding: 2%
+}
+
+.container-icon.right > div{
+  margin: 0 5px;
+}
+
+.container-icon.right > div:first-child{
+  margin: 0 5px 0 0 !important
+}
+
+.container-icon.left > div{
+   margin: 0 5px;
+}
+
+.container-icon.left > div:first-child{
+  margin: 0 5px 0 0 !important
+}
+
+
+.container-icon > div > img{
+  width: 20px
+}
+
+
+
+.container-icon.left{
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content; /* Chrome */
+  margin-right: 0;
+  margin-left: auto;
+}
+
+@media(max-width: 768px){
+  .img-scotsman{
+    margin-left: -68%
+  }
+
+  .img-asko{
+    margin-left: -74%
+  }
+  .container-icon.left{
+    width: 100%;           /* Safari/WebKit uses a non-standard name */
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.topmargin-sm{
+    margin-top: 20px!important;
+}
+.topmargin {
+    margin-top: 50px!important;
+}
+
+.topmargin-lg {
+    margin-top: 80px!important;
+}
+
+
+.container-descripcion{
+  margin-top: 10px
+}
+
+.container-text{
+  margin-top: 10px
+}
+
+.icon-catalogo-right{
+  width: 20px
+}
+
+
+.nomargin{
+    margin: 0!important
+}
+
+.nopadding{
+    padding: 0!important
+}
+
+.bottommargin {
+    margin-bottom: 50px!important;
+}
+
+.bottommargin-sm {
+    margin-bottom: 30px!important;
+}
+
+.bottommargin-xs {
+    margin-bottom: 10px!important;
+}
+
+.bottommargin-lg {
+    margin-bottom: 80px!important;
+}
+
+.col-padding {
+    padding: 4vw 4vw;
+}
+
+.col-padding-h {
+    padding: 0 5%;
+}
+.col-padding-sm{
+  padding: 20px
+}
