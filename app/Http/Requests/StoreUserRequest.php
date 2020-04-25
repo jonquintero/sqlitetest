@@ -7,24 +7,27 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUserRequest extends FormRequest
 {
-
+    public function authorize()
+    {
+        return \Gate::allows('user_create');
+    }
 
     public function rules()
     {
         return [
-            'name' => [
+            'name'     => [
                 'required',
             ],
-            'email' => [
+            'email'    => [
                 'required',
             ],
             'password' => [
                 'required',
             ],
-            'roles.*' => [
+            'roles.*'  => [
                 'integer',
             ],
-            'roles' => [
+            'roles'    => [
                 'required',
                 'array',
             ],

@@ -16,12 +16,14 @@ class CommentController extends Controller
 
     public function index()
     {
+        abort_unless(\Gate::allows('comment_access'), 403);
         return view('admin.comments.index');
     }
 
 
     public function create()
     {
+        abort_unless(\Gate::allows('comment_create'), 403);
         $posts = Post::select('id', 'name')
             ->orderBy('name', 'ASC')
             ->pluck('name', 'id');
@@ -32,6 +34,7 @@ class CommentController extends Controller
 
     public function store(CommentRequest $request)
     {
+        abort_unless(\Gate::allows('comment_create'), 403);
         $data = new Comment;
         $data->fill($request->all());
         $data->user_id = auth()->user()->id;
@@ -59,6 +62,7 @@ class CommentController extends Controller
 
     public function edit($id)
     {
+        abort_unless(\Gate::allows('comment_edit'), 403);
         $data = Comment::find($id);
         $posts = Post::select('id', 'name')
             ->orderBy('name', 'ASC')
@@ -70,6 +74,8 @@ class CommentController extends Controller
 
     public function update(CommentRequest $request, $id)
     {
+        abort_unless(\Gate::allows('comment_edit'), 403);
+
         $data = Comment::find($id);
 
         $data->fill($request->all())->save();
@@ -88,6 +94,8 @@ class CommentController extends Controller
 
     public function destroy($id)
     {
+        abort_unless(\Gate::allows('comment_delete'), 403);
+
         $comment = Comment::find($id)->first();
 
         $this->authorize('delete', $comment);

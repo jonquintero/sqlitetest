@@ -1,13 +1,14 @@
 @extends('layouts.admin')
 @section('title', trans('global.register'))
-@section('breadcrumb')
+@section('breadcrumb')   
    <li class="breadcrumb-item"> <a href="{{ route('admin.posts.index') }}"> POSTS </a> </li>
    <li class="breadcrumb-item active" aria-current="page"> {{isset($post->id) ? trans('global.update') : trans('global.register') }} </li>
 @endsection
 @section('content')
 
 @php
-
+ //dump($post)
+ //dump($errors)
 @endphp
 
  <div class="card">
@@ -40,7 +41,7 @@
 
                              <label for="status" class="col-md-1 col-form-label text-md-right">{{ trans('global.status') }}</label>
 
-
+                          
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                       <input type="radio" class="form-check-input" checked="" value="DRAFT" name="status">DRAFT
@@ -56,12 +57,12 @@
                         </div>
 
 
-
+                        
 
                          <div class="form-group row">
 
                              <label for="name" class="col-md-2 col-form-label">{{ trans('global.description') }} *</label>
-
+                           
 
                             <div class="col-md-12">
 
@@ -89,15 +90,15 @@
                                @enderror
 
 
+                     
 
 
 
-
-
-
+                        
+                     
 
                         <button type="submit" id='btnsummit' class="btn btn-primary my-2">{{ trans('global.save') }}</button>
-                    </form>
+                    </form> 
 
                 </div>
 
@@ -112,12 +113,12 @@ $(document).ready(function(){
     var activeTab = localStorage.getItem('activeTab');
     if(activeTab){
 
-    	@error('body.1','title.1','excerpt.1')
-               activeTab= "#english"
+    	@error('body.1','title.1','excerpt.1') 
+               activeTab= "#english"                     
         @enderror
 
         @if ($errors->has('body.0','title.0','excerpt.0'))
-               activeTab= "#italian"
+               activeTab= "#italian"                     
         @endif
 
         $('#myTab a[href="' + activeTab + '"]').tab('show');

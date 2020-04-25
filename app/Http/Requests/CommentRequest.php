@@ -6,18 +6,18 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CommentRequest extends FormRequest
 {
-
+   
     public function authorize()
     {
         return true;
     }
 
-
+   
     public function rules()
     {
-        $rules = [
-            'post_id' => 'required',
-            'body' => 'required',
+         $rules = [
+            'post_id'   => 'required',
+            'body'      => 'required',          
         ];
 
         return $rules;

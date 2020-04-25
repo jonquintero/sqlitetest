@@ -17,18 +17,21 @@ class PostController extends Controller
 
     public function index()
     {
+        abort_unless(\Gate::allows('post_access'), 403);
         return view('admin.posts.index');
     }
 
 
     public function create()
     {
+        abort_unless(\Gate::allows('post_create'), 403);
         return view('admin.posts.form');
     }
 
 
     public function store(PostRequest $request)
     {
+        abort_unless(\Gate::allows('post_create'), 403);
         $post = new Post;
         $post->fill($request->all());
         $post->user_id = auth()->user()->id;
@@ -37,6 +40,11 @@ class PostController extends Controller
 
         $this->authorize('pass', $post);
 
+        //IMAGE
+        if ($request->file('image')) {
+            $path = Storage::disk('public')->put('img', $request->file('image'));
+            $post->fill(['file' => asset($path)])->save();
+        }
 
         $notification = [
             'message' => trans('global.stored_record'),
@@ -51,6 +59,7 @@ class PostController extends Controller
 
     public function show($id)
     {
+        abort_unless(\Gate::allows('post_access'), 403);
         $post = Post::find($id);
 
         return view('admin.posts.show', compact('post'));
@@ -59,6 +68,7 @@ class PostController extends Controller
 
     public function edit($id)
     {
+        abort_unless(\Gate::allows('comment_edit'), 403);
         $post = Post::find($id);
         $this->authorize('pass', $post);
 
@@ -68,11 +78,17 @@ class PostController extends Controller
 
     public function update(PostRequest $request, $id)
     {
+        abort_unless(\Gate::allows('comment_edit'), 403);
         $post = Post::find($id);
         $this->authorize('pass', $post);
 
         $post->fill($request->all())->save();
 
+        //IMAGE
+        if ($request->file('image')) {
+            $path = Storage::disk('public')->put('image', $request->file('image'));
+            $post->fill(['file' => asset($path)])->save();
+        }
 
         $notification = [
             'message' => trans('global.stored_record'),
@@ -87,6 +103,7 @@ class PostController extends Controller
 
     public function destroy($id)
     {
+        abort_unless(\Gate::allows('post_delete'), 403);
         $post = Post::find($id)->first();
         $this->authorize('pass', $post);
 
